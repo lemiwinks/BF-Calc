@@ -1,0 +1,159 @@
+ScreenManagement:
+    MainScreen:
+    AboutScreen:
+    
+
+<MainScreen>
+    id: 'main_Screen'
+    name: 'MainScreen'
+
+    GridLayout:
+        cols: 1
+        rows: 9
+        GridLayout:
+            cols: 2
+            Label:
+                text: 'Width(in)'
+            TextInput:
+                id: widthInput
+                halign: 'center'
+                input_filter: 'float'
+                multiline: False
+                write_tab: False
+        GridLayout:
+            cols: 2
+            Label:
+                text: 'Length(ft)'
+            TextInput:
+                id: lengthInput
+                halign: 'center'
+                input_filter: 'float'
+                multiline: False
+                write_tab: False
+        GridLayout:
+            cols: 2
+            Label:
+                text: 'Thickness(in)'
+            TextInput:
+                id: thicknessInput
+                halign: 'center'
+                input_filter: 'float'
+                multiline: False
+                write_tab: False
+        GridLayout:
+            cols: 7
+            Label:
+                text: 'Cost'
+                size_hint_x: .25
+            TextInput:
+                id: cost
+                size_hint_x: .25
+                halign: 'center'
+                input_filter: 'float'
+                multiline: False
+                write_tab: False
+            CheckBox:
+                id: bf
+                size_hint_x: .05
+                active: True
+                group: 'bflf'
+            Label:
+                text: 'BF'
+                size_hint_x: .05
+            CheckBox:
+                id: lf
+                group: 'bflf'
+                size_hint_x: .05
+            Label:
+                text: 'LF'
+                size_hint_x: .05
+            Button:
+                size_hint_x: .3
+                text: 'Go!'
+                on_release: root.goCalc()
+        GridLayout:
+            cols: 2
+            Label:
+                text: 'Total Cost'
+            Label:
+                id: totalCost
+        GridLayout:
+            cols: 4
+            Label:
+                text: 'Width of Piece'
+                size_hint_x: .40
+            TextInput:
+                id: widthOfPiece
+                size_hint_x: .20
+                halign: 'center'
+                input_filter: 'float'
+                multiline: False
+                write_tab: False
+            Label:
+                text: 'Length of Piece'
+                size_hint_x: .40
+            TextInput:
+                id: lengthOfPiece
+                size_hint_x: .20
+                halign: 'center'
+                input_filter: 'float'
+                multiline: False
+                write_tab: False
+        GridLayout:
+            cols: 2
+            Label: 
+                text: "Pieces In This Board"
+            Label: 
+                id: pieces
+        GridLayout:
+            cols: 2
+            Label:
+                text: 'Price per Piece'
+            Label:
+                id: pricePerPiece
+        GridLayout:
+            cols: 3
+            Button: 
+                text: "History"
+                size_hint_x: .40
+                on_release: app.root.current = "AboutScreen"
+            Button:
+                text: "Add"
+                size_hint_x: .20
+                on_release: root.addList()
+            Button:
+                text: 'Calculate'
+                size_hint_x: .40
+                on_release: root.goFigure()
+
+
+                          
+<AboutScreen>
+    id: 'about_Screen'
+    name: 'AboutScreen'
+    on_enter: root.test()
+    GridLayout:
+        cols: 1
+        rows: 3
+
+        GridLayout:
+            cols: 1
+            rows: 1
+            size_hint: [1,.1]
+            Button:
+                text: "Home"
+                on_release: app.root.current = 'MainScreen'
+                on_release: root.clearAll()
+        GridLayout:
+            id: printout
+            cols: 1
+        GridLayout:
+            cols: 1
+            size_hint: [1,.1]
+            Button:
+                text: "Clear"
+                on_release: root.clearBtn()
+
+
+
+
